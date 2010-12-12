@@ -32,11 +32,17 @@ Handle<Value> RandBytes(const Arguments &args) {
   Local<Object> buf = args[0]->ToObject();
   char *data = Buffer::Data(buf);
   size_t length = Buffer::Length(buf);
-  if (!RAND_bytes((unsigned char*)data, length)) {
-    unsigned long code = ERR_get_error();
-    return ThrowException(Exception::Error(String::New(
-            ERR_error_string(code, NULL))));
+
+  switch (RAND_bytes((unsigned char*) data, length)) {
+    case -1:
+      return ThrowException(Exception::Error(String::New(
+              "Current RAND method does not support this operation")));
+    case 0:
+      unsigned long code = ERR_get_error();
+      return ThrowException(Exception::Error(String::New(
+              ERR_error_string(code, NULL))));
   }
+
   return scope.Close(Integer::NewFromUnsigned(length));
 }
 
