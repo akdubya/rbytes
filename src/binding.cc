@@ -119,7 +119,7 @@ Handle<Value> HexToBuf(const Arguments &args) {
 extern "C"
 void init(Handle<Object> target) {
   HandleScope scope;
-  target->Set(String::NewSymbol("randBytes"),
+  target->Set(String::NewSymbol("randomBytes"),
           FunctionTemplate::New(RandBytes)->GetFunction());
   target->Set(String::NewSymbol("bufToHex"),
           FunctionTemplate::New(BufToHex)->GetFunction());
