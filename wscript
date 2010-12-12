@@ -15,4 +15,4 @@ def configure(conf):
 def build(bld):
   obj = bld.new_task_gen("cxx", "shlib", "node_addon")
   obj.target = "binding"
-  obj.find_sources_in_dirs("src")
+  obj.source = "./src/binding.cc"
