@@ -30,8 +30,6 @@ rbytes adds two convenience methods to Node's Buffer class for easy conversion b
 Installation
 ------------
 
-Via npm:
-
     $ npm install rbytes
 
 Notes
