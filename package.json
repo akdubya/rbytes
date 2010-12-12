@@ -1,7 +1,7 @@
 {
   "name"          : "rbytes",
   "version"       : "0.0.1",
-  "description"   : "Bindings to OpenSSL random byte generators",
+  "description"   : "Generates cryptographically secure random byte sequences",
   "author"        : "Aleksander Williams",
   "contributors"  : [],
   "url"           : "http://akdubya.github.com/rbytes/",
